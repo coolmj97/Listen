@@ -8,7 +8,7 @@ import Comment from '../components/Comment';
 const Section = styled.section`
   padding: 0 0 100px 0;
   @media screen and (min-width: 992px) {
-    width: 80%;
+    width: 75%;
     padding: 0 90px;
   }
 `;

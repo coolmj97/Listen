@@ -1,0 +1,11 @@
+.slide__wrapper {
+  width: 100%;
+  height: 200px;
+  background-color: #fcfaf9;
+}
+
+@media screen and (min-width: 992px) {
+  .slide__wrapper {
+    height: 300px;
+  }
+}

@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import React from 'react';
+import { HashRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 import './App.css';
+import Home from './routes/Home';
+import Detail from './routes/Detail';
+import Control from './components/Control';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <HashRouter>
+        <Route path="/" exact={true} component={Home} />
+        <Route path="/detail/:id" exact={true} component={Detail} />
+      </HashRouter>
+      <Control />
+    </>
   );
+};
+
+function mapStateToProps(store) {
+  return {
+    selectedData: store.handleMusic,
+  };
 }
 
-export default App;
+export default connect(mapStateToProps)(App);

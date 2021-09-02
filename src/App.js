@@ -1,6 +1,5 @@
 import React from 'react';
 import { HashRouter, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
 import './App.css';
 import Home from './routes/Home';
 import Detail from './routes/Detail';
@@ -18,10 +17,4 @@ const App = () => {
   );
 };
 
-function mapStateToProps(store) {
-  return {
-    selectedData: store.handleMusic,
-  };
-}
-
-export default connect(mapStateToProps)(App);
+export default App;

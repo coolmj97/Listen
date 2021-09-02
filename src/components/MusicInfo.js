@@ -137,28 +137,28 @@ const MusicInfo = ({ selectedInfo }) => {
             </InfoArtistWrapper>
           </div>
         </InfoWrapper>
-
-        <LikeButtonWrapper>
-          <LikeButton
-            type="button"
-            onClick={() => {
-              if (like === false) {
-                setNumber(number + 1);
-              } else {
-                setNumber(number - 1);
-              }
-              setLike(!like);
-            }}
-          >
-            {like ? (
-              <Icon className="fas fa-heart"></Icon>
-            ) : (
-              <Icon className="far fa-heart"></Icon>
-            )}
-          </LikeButton>
-          <LikeNumber>{number}</LikeNumber>
-        </LikeButtonWrapper>
       </InfoSection>
+
+      <LikeButtonWrapper>
+        <LikeButton
+          type="button"
+          onClick={() => {
+            if (like === false) {
+              setNumber(number + 1);
+            } else {
+              setNumber(number - 1);
+            }
+            setLike(!like);
+          }}
+        >
+          {like ? (
+            <Icon className="fas fa-heart"></Icon>
+          ) : (
+            <Icon className="far fa-heart"></Icon>
+          )}
+        </LikeButton>
+        <LikeNumber>{number}</LikeNumber>
+      </LikeButtonWrapper>
 
       <VideoSection>
         <Title>영상</Title>

@@ -78,7 +78,7 @@ const Icon = styled.i`
   }
 `;
 
-const Control = ({ selectedData, onPlayPause, onPrev, onNext }) => {
+const Control = ({ selectedData, onPlayPauseBtn, onPrevBtn, onNextBtn }) => {
   const isPlaying = selectedData.isPlaying;
   let audioRef;
 
@@ -110,10 +110,10 @@ const Control = ({ selectedData, onPlayPause, onPrev, onNext }) => {
         <Button
           type="button"
           onClick={() => {
-            if (selectedData.id === 1) {
+            if (selectedData.id === 1 || selectedData.id === undefined) {
               return;
             }
-            onPrev(selectedData.id);
+            onPrevBtn(selectedData.id);
           }}
           aria-label="이전곡"
         >
@@ -132,7 +132,7 @@ const Control = ({ selectedData, onPlayPause, onPrev, onNext }) => {
             } else {
               audioRef.audioEl.current.pause();
             }
-            onPlayPause(isPlaying);
+            onPlayPauseBtn(isPlaying);
           }}
           aria-label="재생/일시정지"
         >
@@ -147,10 +147,10 @@ const Control = ({ selectedData, onPlayPause, onPrev, onNext }) => {
         <Button
           type="button"
           onClick={() => {
-            if (selectedData.id === 5) {
+            if (selectedData.id === 5 || selectedData.id === undefined) {
               return;
             }
-            onNext(selectedData.id);
+            onNextBtn(selectedData.id);
           }}
           aria-label="다음곡"
         >
@@ -165,7 +165,7 @@ const Control = ({ selectedData, onPlayPause, onPrev, onNext }) => {
         ref={(element) => {
           audioRef = element;
         }}
-        onEnded={onPlayPause}
+        onEnded={onPlayPauseBtn}
         volume={0.2}
         autoPlay
       ></ReactAudioPlayer>
@@ -181,20 +181,20 @@ function mapStateToProps(store) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onPlayPause: (isPlaying) =>
+    onPlayPauseBtn: (isPlaying) =>
       dispatch({
         type: 'TOGGLE_MUSIC',
         isPlaying: !isPlaying,
       }),
 
-    onPrev: (id) =>
+    onPrevBtn: (id) =>
       dispatch({
         type: 'PREVIOUS',
         isPlaying: true,
         id,
       }),
 
-    onNext: (id) =>
+    onNextBtn: (id) =>
       dispatch({
         type: 'NEXT',
         isPlaying: true,
